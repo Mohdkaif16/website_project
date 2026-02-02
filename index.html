@@ -1,1 +1,136 @@
-<h1>Kanha Agro Foods</h1><a href='/login'>Login</a> | <a href='/register'>Register</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kanha Agro Foods</title>
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f4f4f4;
+        }
+        header{
+            background:#2e7d32;
+            padding:15px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            color:white;
+        }
+        header h1{margin:0;}
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+            font-weight:bold;
+        }
+        .search-bar{
+            text-align:center;
+            margin:20px;
+        }
+        .search-bar input{
+            width:50%;
+            padding:10px;
+            font-size:16px;
+        }
+        .products{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+            gap:20px;
+            padding:20px 40px;
+        }
+        .card{
+            background:white;
+            border-radius:8px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            padding:15px;
+            text-align:center;
+            transition:0.3s;
+        }
+        .card:hover{
+            transform:scale(1.05);
+        }
+        .card img{
+            width:100%;
+            height:200px;
+            object-fit:cover;
+            border-radius:5px;
+        }
+        .price{
+            color:#2e7d32;
+            font-size:18px;
+            font-weight:bold;
+        }
+        .btn{
+            background:#2e7d32;
+            color:white;
+            padding:10px 15px;
+            border:none;
+            margin-top:10px;
+            cursor:pointer;
+            border-radius:5px;
+        }
+        footer{
+            background:#333;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Kanha Agro Foods</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/cart">Cart</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    </nav>
+</header>
+
+<div class="search-bar">
+    <input type="text" placeholder="Search for agro products...">
+</div>
+
+<div class="products">
+
+    <!-- Flash Product Card -->
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?rice" alt="Rice">
+        <h3>Premium Basmati Rice</h3>
+        <p class="price">₹120 / kg</p>
+        <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?wheat" alt="Wheat">
+        <h3>Organic Wheat</h3>
+        <p class="price">₹60 / kg</p>
+        <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?lentils" alt="Lentils">
+        <h3>Yellow Lentils (Dal)</h3>
+        <p class="price">₹90 / kg</p>
+        <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?spices" alt="Spices">
+        <h3>Mixed Indian Spices</h3>
+        <p class="price">₹250 / pack</p>
+        <button class="btn">Add to Cart</button>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Kanha Agro Foods | Fresh From Farms
+</footer>
+
+</body>
+</html>
