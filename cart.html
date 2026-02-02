@@ -1,0 +1,5 @@
+<h2>Your Cart</h2>
+{% for i in items %}
+<p>{{i[1]}} ₹{{i[2]}} x {{i[3]}} <a href='/remove/{{i[0]}}'>Remove</a></p>
+{% endfor %}
+<a href='/checkout'>Checkout</a>

@@ -1,0 +1,12 @@
+<h2>Products</h2>
+<form method='GET'><input name='q' placeholder='Search'><button>Search</button></form>
+{% for i in items %}
+<div>
+<b>{{i[1]}}</b> ₹{{i[2]}} Stock: {{i[3]}}
+<form action='/add_to_cart/{{i[0]}}' method='POST'>
+<input type='number' name='quantity' value='1'>
+<button>Add to Cart</button>
+</form>
+</div>
+{% endfor %}
+<a href='/cart'>Cart</a>
