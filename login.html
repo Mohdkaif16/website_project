@@ -1,1 +1,197 @@
-<form method='POST'><h2>Login</h2><input name='username'><input type='password' name='password'><button>Login</button></form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kanha Agro Foods - Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* Left Branding Panel */
+.left-panel{
+    flex:1;
+    background: linear-gradient(rgba(46,125,50,0.85),rgba(46,125,50,0.85)),
+    url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.brand h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.brand p{
+    font-size:20px;
+}
+
+/* Right Panel */
+.right-panel{
+    flex:1;
+    background:#f4f6f7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Login Card */
+.login-card{
+    width:380px;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.login-card h2{
+    color:#2e7d32;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    margin-bottom:25px;
+    color:#666;
+}
+
+/* Floating Inputs */
+.input-group{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    outline:none;
+}
+
+.input-group label{
+    position:absolute;
+    top:12px;
+    left:12px;
+    color:#888;
+    transition:0.3s;
+    pointer-events:none;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+    top:-10px;
+    left:10px;
+    font-size:12px;
+    color:#2e7d32;
+    background:white;
+    padding:0 5px;
+}
+
+/* Options */
+.options{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.options a{
+    color:#2e7d32;
+    text-decoration:none;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#2e7d32;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#256528;
+}
+
+.register{
+    text-align:center;
+    margin-top:20px;
+}
+
+.register a{
+    color:#2e7d32;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <div class="brand">
+            <h1>Kanha Agro Foods</h1>
+            <p>Pure Organic Products Direct from Farm</p>
+        </div>
+    </div>
+
+    <!-- Right Login Panel -->
+    <div class="right-panel">
+        <div class="login-card">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Login to continue</p>
+
+            <form method="POST" action="/login">
+                <div class="input-group">
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+
+                <div class="options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p class="register">
+                New user? <a href="/register">Create Account</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html><form method='POST'><h2>Login</h2><input name='username'><input type='password' name='password'><button>Login</button></form>
