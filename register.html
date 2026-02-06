@@ -28,7 +28,7 @@ body{
     url('https://tse2.mm.bing.net/th/id/OIP.xvXVgJoA8nLgZdSctnkxSgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3');
     background-size:cover;
     background-position:center;
-    color:white;
+    color:rgb(234, 248, 195);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -48,7 +48,7 @@ body{
 /* Right Panel */
 .right-panel{
     flex:1;
-    background:#96283CBF;
+    background:#FFF4DB;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -131,6 +131,78 @@ button:hover{
 .login-link a{
     color:#96283CBF;
     text-decoration:none;
+
+
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .register-card {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .brand h1 {
+        font-size: 40px;
+    }
+
+    .brand p {
+        font-size: 18px;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        height: 40vh;
+        padding: 20px;
+    }
+
+    .brand h1 {
+        font-size: 32px;
+    }
+
+    .brand p {
+        font-size: 16px;
+    }
+
+    .right-panel {
+        height: 60vh;
+        padding: 20px;
+    }
+
+    .register-card {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 25px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+    .brand h1 {
+        font-size: 26px;
+    }
+
+    .brand p {
+        font-size: 14px;
+    }
+
+    .register-card h2 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
 }
 </style>
 </head>
@@ -143,7 +215,7 @@ button:hover{
     <div class="left-panel">
         <div class="brand">
             <h1>Kanha Agro Foods</h1>
-            <p>Pure Organic Products Direct from Farm</p>
+            <p>Har Din Har Pal, Kanha Pulses</p>
         </div>
     </div>
 
@@ -178,7 +250,7 @@ button:hover{
             </form>
 
             <p class="login-link">
-                Already have an account? <a href="/login">Login</a>
+                Already have an account? <a href="login.html">Login</a>
             </p>
         </div>
     </div>
