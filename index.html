@@ -7,71 +7,97 @@
         body{
             margin:0;
             font-family: Arial, Helvetica, sans-serif;
-            background:#f4f4f4;
+            background:#FFF4DB;
         }
+
         header{
-            background:#2e7d32;
+            background:#96283C;
             padding:15px 40px;
             display:flex;
             justify-content:space-between;
             align-items:center;
             color:white;
         }
+
         header h1{margin:0;}
+
         nav a{
-            color:white;
+            color:#FFF4DB;
             text-decoration:none;
             margin-left:20px;
             font-weight:bold;
         }
+
+        nav a:hover{
+            text-decoration:underline;
+        }
+
         .search-bar{
             text-align:center;
             margin:20px;
         }
+
         .search-bar input{
             width:50%;
             padding:10px;
             font-size:16px;
+            border-radius:5px;
+            border:1px solid #96283C;
         }
+
         .products{
             display:grid;
             grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
             gap:20px;
             padding:20px 40px;
         }
+
         .card{
-            background:white;
-            border-radius:8px;
-            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            background:#FFF9EE;
+            border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.12), 
+               0 10px 20px rgba(0,0,0,0.2);
             padding:15px;
             text-align:center;
             transition:0.3s;
+            
         }
+
+
         .card:hover{
             transform:scale(1.05);
         }
+
         .card img{
             width:200px;
             height:300px;
             object-fit:cover;
-            border-radius:5px;
+            border-radius:8px;
         }
+
         .price{
-            color:#2e7d32;
+            color:#96283C;
             font-size:18px;
             font-weight:bold;
         }
+
         .btn{
-            background:#2e7d32;
+            background:#96283C;
             color:white;
             padding:10px 15px;
             border:none;
             margin-top:10px;
             cursor:pointer;
             border-radius:5px;
+            font-weight:bold;
+            transition:0.3s;
         }
+
+        .btn:hover{
+            background:#7d2032;
+        }
+
         footer{
-            background:#333;
+            background:#96283C;
             color:white;
             text-align:center;
             padding:15px;
@@ -97,7 +123,6 @@
 
 <div class="products">
 
-    <!-- Flash Product Card -->
     <div class="card">
         <img src="https://5.imimg.com/data5/ANDROID/Default/2025/4/500864459/JZ/WH/NA/5667603/product-jpeg-500x500.jpg" alt="Rice">
         <h3>Premium Basmati Rice</h3>
@@ -121,7 +146,7 @@
 
     <div class="card">
         <img src="https://sbwmeals.com/wp-content/uploads/2023/09/Besan.jpg" alt="besan">
-        <h3>Besan (gram flour)</h3>
+        <h3>Besan (Gram Flour)</h3>
         <p class="price">₹145 / pack</p>
         <button class="btn">Add to Cart</button>
     </div>
