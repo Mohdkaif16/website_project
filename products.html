@@ -1,12 +1,131 @@
-<h2>Products</h2>
-<form method='GET'><input name='q' placeholder='Search'><button>Search</button></form>
-{% for i in items %}
-<div>
-<b>{{i[1]}}</b> ₹{{i[2]}} Stock: {{i[3]}}
-<form action='/add_to_cart/{{i[0]}}' method='POST'>
-<input type='number' name='quantity' value='1'>
-<button>Add to Cart</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kanha Agro Foods - Products</title>
+<meta charset="UTF-8">
+
+<style>
+body{margin:0;font-family:Arial;background:#FFF4DB}
+
+/* HEADER */
+header{
+    background:#96283C;
+    padding:15px 40px;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+header h1{margin:0}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+    font-size:16px;
+}
+nav a:hover{text-decoration:underline}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.price{color:#96283C;font-size:18px;font-weight:bold}
+
+button{
+    background:#96283C;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{background:#7d2032}
+
+/* FOOTER */
+footer{
+    background:#96283C;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Kanha Agro Foods</h1>
+<nav>
+<a href="products.html">Products</a>
+<a href="cart.html">🛒 Cart</a>
+</nav>
+</header>
+
+<h2 style="text-align:center;color:#96283C">Our Products</h2>
+
+<div class="products">
+
+<div class="card">
+<h3>Rice</h3>
+<p class="price">₹120</p>
+<input type="number" id="qtyRice" value="1" min="1">
+<br><br>
+<button onclick="addToCart('Rice',120,'qtyRice')">Add to Cart</button>
 </div>
-{% endfor %}
-<a href='/cart'>Cart</a>
+
+<div class="card">
+<h3>Wheat</h3>
+<p class="price">₹60</p>
+<input type="number" id="qtyWheat" value="1" min="1">
+<br><br>
+<button onclick="addToCart('Wheat',60,'qtyWheat')">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Dal</h3>
+<p class="price">₹90</p>
+<input type="number" id="qtyDal" value="1" min="1">
+<br><br>
+<button onclick="addToCart('Dal',90,'qtyDal')">Add to Cart</button>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Kanha Agro Foods | All Rights Reserved</p>
+<p>Contact: kanhaagro@gmail.com | Phone: +91 9876543210</p>
+</footer>
+
+<script>
+function addToCart(name, price, qtyId){
+    let qty = parseInt(document.getElementById(qtyId).value);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let found = cart.find(item => item.name === name);
+    if(found){
+        found.qty += qty;
+    } else {
+        cart.push({name:name, price:price, qty:qty});
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+</script>
+
+</body>
+</html>
