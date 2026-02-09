@@ -1,5 +1,210 @@
-<h2>Your Cart</h2>
-{% for i in items %}
-<p>{{i[1]}} ₹{{i[2]}} x {{i[3]}} <a href='/remove/{{i[0]}}'>Remove</a></p>
-{% endfor %}
-<a href='/checkout'>Checkout</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kanha Agro Foods - Cart</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#FFF4DB;
+}
+
+/* Header */
+header{
+    background:#96283C;
+    padding:15px 40px;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{margin:0;}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+/* Cart Container */
+.cart-box{
+    width:80%;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cart-box h2{
+    color:#96283C;
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+th{
+    background:#96283C;
+    color:white;
+}
+
+/* Quantity Buttons */
+.qty-btn{
+    padding:5px 10px;
+    border:none;
+    background:#96283C;
+    color:white;
+    cursor:pointer;
+    border-radius:3px;
+}
+
+/* Remove Button */
+.remove{
+    color:red;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* Checkout Button */
+.checkout{
+    display:block;
+    width:200px;
+    margin:20px auto;
+    padding:12px;
+    background:#96283C;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.checkout:hover{
+    background:#7d2032;
+}
+
+/* Footer */
+footer{
+    background:#96283C;
+    color:white;
+    text-align:center;
+    padding:10px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Kanha Agro Foods</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<div class="cart-box">
+<h2>Your Shopping Cart</h2>
+
+<table id="cartTable">
+<tr>
+    <th>Product</th>
+    <th>Price (₹)</th>
+    <th>Quantity</th>
+    <th>Total (₹)</th>
+    <th>Action</th>
+</tr>
+
+<tr>
+    <td>Rice</td>
+    <td class="price">120</td>
+    <td>
+        <button class="qty-btn" onclick="changeQty(this,-1)">-</button>
+        <span class="qty">1</span>
+        <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+    </td>
+    <td class="total">120</td>
+    <td class="remove" onclick="removeItem(this)">Remove</td>
+</tr>
+
+<tr>
+    <td>Wheat</td>
+    <td class="price">60</td>
+    <td>
+        <button class="qty-btn" onclick="changeQty(this,-1)">-</button>
+        <span class="qty">2</span>
+        <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+    </td>
+    <td class="total">120</td>
+    <td class="remove" onclick="removeItem(this)">Remove</td>
+</tr>
+
+<tr>
+    <td colspan="3"><b>Grand Total</b></td>
+    <td colspan="2"><b>₹ <span id="grandTotal">0</span></b></td>
+</tr>
+
+</table>
+
+<a class="checkout" href="checkout.html">Proceed to Checkout</a>
+
+</div>
+
+<footer>
+    © 2026 Kanha Agro Foods | Fresh From Farms
+</footer>
+
+<!-- JavaScript -->
+<script>
+function updateTotal(){
+    let rows = document.querySelectorAll("#cartTable tr");
+    let grand = 0;
+
+    rows.forEach((row,index)=>{
+        if(index==0 || index==rows.length-1) return;
+
+        let price = row.querySelector(".price").innerText;
+        let qty = row.querySelector(".qty").innerText;
+        let total = price * qty;
+        row.querySelector(".total").innerText = total;
+        grand += total;
+    });
+
+    document.getElementById("grandTotal").innerText = grand;
+}
+
+function changeQty(btn, change){
+    let qtySpan = btn.parentElement.querySelector(".qty");
+    let qty = parseInt(qtySpan.innerText);
+    qty += change;
+    if(qty < 1) qty = 1;
+    qtySpan.innerText = qty;
+    updateTotal();
+}
+
+function removeItem(btn){
+    btn.parentElement.parentElement.remove();
+    updateTotal();
+}
+
+// Load total on page load
+updateTotal();
+</script>
+
+</body>
+</html>
