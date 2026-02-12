@@ -8,7 +8,7 @@
 body{
     margin:0;
     font-family:Arial, sans-serif;
-     background-image: url("background.jpg");
+    background-image: url("background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -63,6 +63,16 @@ th, td{
 th{
     background:#96283C;
     color:white;
+}
+
+/* Product Image */
+.product-img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:8px;
+    display:block;
+    margin:0 auto 6px;
 }
 
 /* Quantity Buttons */
@@ -134,8 +144,12 @@ footer{
     <th>Action</th>
 </tr>
 
+<!-- Product 1 -->
 <tr>
-    <td>Rice</td>
+    <td>
+        <img src="rice.jpg" alt="Rice" class="product-img">
+        <b>Rice</b>
+    </td>
     <td class="price">120</td>
     <td>
         <button class="qty-btn" onclick="changeQty(this,-1)">-</button>
@@ -146,8 +160,12 @@ footer{
     <td class="remove" onclick="removeItem(this)">Remove</td>
 </tr>
 
+<!-- Product 2 -->
 <tr>
-    <td>Wheat</td>
+    <td>
+        <img src="wheat.jpg" alt="Wheat" class="product-img">
+        <b>Wheat</b>
+    </td>
     <td class="price">60</td>
     <td>
         <button class="qty-btn" onclick="changeQty(this,-1)">-</button>
@@ -158,6 +176,7 @@ footer{
     <td class="remove" onclick="removeItem(this)">Remove</td>
 </tr>
 
+<!-- Grand Total -->
 <tr>
     <td colspan="3"><b>Grand Total</b></td>
     <td colspan="2"><b>₹ <span id="grandTotal">0</span></b></td>
@@ -166,14 +185,12 @@ footer{
 </table>
 
 <a class="checkout" href="checkout.html">Proceed to Checkout</a>
-
 </div>
 
 <footer>
     © 2026 Kanha Agro Foods | Fresh From Farms
 </footer>
 
-<!-- JavaScript -->
 <script>
 function updateTotal(){
     let rows = document.querySelectorAll("#cartTable tr");
@@ -206,7 +223,6 @@ function removeItem(btn){
     updateTotal();
 }
 
-// Load total on page load
 updateTotal();
 </script>
 
